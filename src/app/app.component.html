@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>PokéList</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="app-container">
+  <mat-sidenav #sidenav mode="side" opened="true">
+  </mat-sidenav>
+
+  <mat-sidenav-content class="center-content">
+    <div class="element-container">
+      <router-outlet></router-outlet>
+      <app-pokemon-create></app-pokemon-create> 
+      <app-pokemon-list></app-pokemon-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

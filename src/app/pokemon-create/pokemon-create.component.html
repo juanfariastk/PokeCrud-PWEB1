@@ -1,0 +1,35 @@
+<div class="pokemon-create-container">
+    <mat-form-field class="search-field">
+      <input
+        matInput
+        placeholder="Digite o nome do Pokémon"
+        [(ngModel)]="pokemonName"
+        [matAutocomplete]="auto"
+      />
+      <mat-icon-button
+        class="search-icon"
+        icon="search"
+        position="start"
+        matPrefix
+        (click)="searchPokemon()"
+      >
+        <mat-icon>search</mat-icon>
+      </mat-icon-button>
+    </mat-form-field>
+  
+    <mat-autocomplete #auto="matAutocomplete">
+        <div class="pokemon-options-container">
+          <mat-option *ngFor="let result of searchResults" [value]="result" class="pokemon-option">
+            <mat-card class="pokemon-card" (click)="addPokemonToList(result)">
+              <mat-card-header>
+                <mat-card-title>{{ result.name }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <img [src]="result?.sprites?.front_default" alt="{{ result?.name }}" class="pokemon-image" />
+              </mat-card-content>
+            </mat-card>
+          </mat-option>
+        </div>
+      </mat-autocomplete>
+  </div>
+  
